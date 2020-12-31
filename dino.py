@@ -5,6 +5,8 @@ import time
 
 color = None
 
+
+
 def hit(key):
     pyautogui.press(key)
     return
