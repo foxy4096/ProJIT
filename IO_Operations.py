@@ -1,11 +1,11 @@
-data = {
-    'Book': "Two Scoops of Django",
-    'Version': "3.2"
-}
-
-with open('data.txt', mode='r+') as file:
-    data_temp = file.read()
-    print(file.read())
-    file.write(str(data + '\n'))
-    print(file.read())
-    file.close()
+# Give Some Dummy data
+data = input("Please Type Something\n➡ ")
+# Opening the file
+file = open(file="data", mode='r+')
+# Writing the file
+file.write(str(data))
+# Printing the contents of the file
+print(file.read())
+# Closing the file
+file.close()
+# Ok Now I am getting really mad

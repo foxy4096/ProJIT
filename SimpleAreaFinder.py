@@ -74,7 +74,7 @@ Please enter the type of Triangle (In number):
         print(type_menu)
         try:
             Stype = int(input("Please Enter the type >>> "))
-            Is_End_1 = true
+            Is_End_1 = True
         except:
             print("Option Must be a number")
             Is_End_1 = False

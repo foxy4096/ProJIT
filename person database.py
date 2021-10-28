@@ -12,7 +12,7 @@ class Person:
         }
         with open('data.txt', mode='r+') as file:
             temp_data = file.read()
-            file.write(str(data) + '\n' + temp_data)
+            file.write(str(data + '\n'))
             file.close()
             print("Data Written Successfully")
 
