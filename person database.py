@@ -1,43 +1,51 @@
+# Create A database for person
+
+# A simple Person Class
 class Person:
-    def __init__(self, name, age, gender):
+    """
+    A Class for Person
+    """
+    def __init__(self, name, email, phone):
         self.name = name
-        self.age = age
-        self.gender = gender
+        self.email = email
+        self.phone = phone
+        self.friends = []
+        self.greeting_count = 0
 
-    def save(self):
-        data = {
-            'name': self.name,
-            'age': self.age,
-            'gender': self.gender
-        }
-        with open('data.txt', mode='r+') as file:
-            temp_data = file.read()
-            file.write(str(data + '\n'))
-            file.close()
-            print("Data Written Successfully")
+    def __repr__(self):
+        return f'{self.name} (email: {self.email}, phone: {self.phone})'
 
-    def delete(self):
-        data = {
-            'name': self.name,
-            'age': self.age,
-            'gender': self.gender
-        }
-        with open('data.txt', mode='r+') as file:
-            for person in file.read():
-                if person == str(data):
-                    person = ''
-            file.close()
-            print("Data Removed Successfully")
+    def greet(self, other_person):
+        self.greeting_count += 1
+        print(f'Hello {other_person.name}, I am {self.name}!')
+        other_person.greeting_count += 1
 
-    @staticmethod
-    def show():
-        persons = []
-        with open('data.txt', mode='r+') as file:
-            for person in file.read():
-                persons.append(dict(person))
-            file.close
-        return persons
+    def print_contact_info(self):
+        print(f'{self.name}\'s email: {self.email}, {self.name}\'s phone number: {self.phone}')
 
+    def add_friend(self, friend):
+        self.friends.append(friend)
 
-aditya = Person("Aditya", 16, "M")
-aditya.save()
+    def num_friends(self):
+        return len(self.friends)
+
+    def __str__(self):
+        return f'{self.name} (email: {self.email}, phone: {self.phone})'
+
+def menu():
+    """
+    Prints the menu
+    """
+    print('Menu:')
+    print('1 - Add a person')
+    print('2 - Print a person')
+    print('3 - Print number of people')
+    print('4 - Greet a person')
+    print('5 - Print number of greetings')
+    print('6 - Add a friend')
+    print('7 - Print number of friends')
+    print('8 - Exit')
+
+optitons = ['1', '2', '3', '4', '5', '6', '7', '8']
+menu()
+input_option = input('Enter an option: ')
