@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server.py</title>
+</head>
+<body>
+    <h1>This file is being served on <span id="host"></span></h1>
+    via python3.10
+    <script>
+        document.getElementById("host").innerHTML = window.location.host;
+        socket = new WebSocket("ws://" + window.location.host + "/ws");
+        socket.onmessage = function(event) {
+            console.log(event.data);
+        };
+    </script>
+</body>
+</html>
