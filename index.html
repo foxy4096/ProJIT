@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server.py</title>
 </head>
+
 <body>
-    <h1>This file is being served on <span id="host"></span></h1>
-    via python3.10
+    <form name="publish">
+        <input type="text" name="message">
+        <input type="submit" value="Send">
+      </form>
+      
+      <!-- div with messages -->
+      <div id="messages"></div>
     <script>
-        document.getElementById("host").innerHTML = window.location.host;
-        socket = new WebSocket("ws://" + window.location.host + "/ws");
-        socket.onmessage = function(event) {
-            console.log(event.data);
-        };
+        let socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
+
+// send message from the form
+document.forms.publish.onsubmit = function() {
+  let outgoingMessage = this.message.value;
+
+  socket.send(outgoingMessage);
+  return false;
+};
+
+// message received - show the message in div#messages
+socket.onmessage = function(event) {
+  let message = event.data;
+
+  let messageElem = document.createElement('div');
+  messageElem.textContent = message;
+  document.getElementById('messages').prepend(messageElem);
+}
     </script>
 </body>
+
 </html>

@@ -5,6 +5,34 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch SelectionSort",
+            "request": "launch",
+            "mainClass": "SelectionSort",
+            "projectName": "ProJIT_48b9a28d"
+        },
+        {
+            "type": "java",
+            "name": "Launch BinarySearch",
+            "request": "launch",
+            "mainClass": "BinarySearch",
+            "projectName": "ProJIT_48b9a28d"
+        },
+        {
+            "type": "java",
+            "name": "Launch BubbleSort",
+            "request": "launch",
+            "mainClass": "BubbleSort",
+            "projectName": "ProJIT_48b9a28d"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinearSearch",
+            "request": "launch",
+            "mainClass": "LinearSearch",
+            "projectName": "ProJIT_48b9a28d"
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -24,7 +52,6 @@
                 }
             ]
         },
-
         {
             "name": "(gdb) Attach",
             "type": "cppdbg",
@@ -41,8 +68,6 @@
                 }
             ]
         },
-
-
         {
             "name": "Launch Chrome",
             "request": "launch",
@@ -61,6 +86,5 @@
             "environment": [],
             "console": "externalTerminal"
         }
-
     ]
 }

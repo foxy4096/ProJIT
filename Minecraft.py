@@ -11,7 +11,7 @@ around the player so you can interact with the world.
 '''
 
 from ursina import *
-from ursina.prefabs.first_person_controller import FirstPersonController
+from ursina.prefabs.platformer_controller_2d import PlatformerController2d
 
 
 app = Ursina()
@@ -28,23 +28,24 @@ class Voxel(Button):
             origin_y = .5,
             texture = 'white_cube',
             color = color.color(0, 0, random.uniform(.9, 1.0)),
-            highlight_color = color.lime,
+            highlight_color = color.dark_gray,
         )
 
 
     def input(self, key):
         if self.hovered:
-            if key == 'left mouse down':
+            if key == 'right mouse down':
                 voxel = Voxel(position=self.position + mouse.normal)
 
-            if key == 'right mouse down':
+            if key == 'left mouse down':
                 destroy(self)
 
 
-for z in range(8):
-    for x in range(8):
-        voxel = Voxel(position=(x,0,z))
+for x in range(9):
+    for y in range(9):
+        for z in range(9):
+            voxel = Voxel(position=(x,y,z))
 
 
-player = FirstPersonController()
+player = PlatformerController2d()
 app.run()

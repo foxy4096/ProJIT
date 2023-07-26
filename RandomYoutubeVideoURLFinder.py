@@ -1,40 +1,36 @@
 import random
 import requests
 
-def url_gen(length=8):
-    data = 'abcdefghijklmnopqrstuvwxyz1234567890'
+def url_gen(length=11):
+    data = 'abcdefghijklmnopqrstuvwxyz1234567890-_'
     build = []
-    for i in range(length):
+    for _ in range(length):
         # Get a random character from data variable
         append = data[random.randrange(0, len(data))]
         # If the position is less than 26, it is not a number
-        if data.find(append) < 26:
-            # 50% chance to capitalize the letter
-            if random.randrange(0, 2) == 1:
-                append = append.upper()
+        if data.find(append) < 26 and random.randrange(0, 2) == 1:
+            append = append.upper()
         # append the letter to our build list
         build.append(append)
 
-    # turn the build list into a string
-    build = ''.join(build)
-    # return the string we built
-    return build
+    return ''.join(build)
 
 
 def check_video_url(video_id):
     checker_url = "https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v="
     video_url = checker_url + video_id
 
-    request = requests.get(video_url)
-
-    return request.status_code == 200
+    return requests.get(video_url)
 
 
 while True:
     url_id = url_gen()
     url = f"https://www.youtube.com/watch?v={url_id}"
-    check = check_video_url(url_id)
-    if check == True:
+    print(url)
+    req = check_video_url(url_id)
+    if req.ok:
         print(url)
         break
+    else:
+        print("Nope:", req.status_code)
     # print("https://i.imgur.com/" + url_gen() + ".jpg")

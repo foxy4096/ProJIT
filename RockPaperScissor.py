@@ -25,7 +25,7 @@ def computerSelector():
         computer = 'S'
     return computer
 
-running = True
+running:bool = True
 def game(running:bool, computer_input:str):
     while running:
         choose_list = ['R', 'P', 'S']

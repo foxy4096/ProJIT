@@ -5,7 +5,9 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "C:\\Users\\Aditya\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+		"python.pythonPath": "C:\\Users\\Aditya\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+		"editor.tabCompletion": "on",
+		"diffEditor.codeLens": true
 	},
 
 }
