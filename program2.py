@@ -73,4 +73,4 @@ if __name__ == "__main__":
             p.get_all_languages()
         elif option == 5 or option is None:
             p.CONN.close()
-            break;
+            break

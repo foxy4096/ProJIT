@@ -1,3 +1,6 @@
+import java.time.Instant;
+import java.time.Duration;
+
 import java.util.Scanner;
 
 /**
@@ -11,12 +14,16 @@ public class LinearSearch {
         System.out.println("Enter the number to be searched");
         int key = sc.nextInt();
         sc.close();
+        Instant start = Instant.now();
         int indx = linearSearch(arr, key);
         if (indx != -1) {
             System.out.println("Element found at index " + indx);
         } else {
             System.out.println("Element not found");
         }
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        System.out.println("Time taken to execute the program is " + timeElapsed + " milliseconds");
     }
 
     static int linearSearch(int arr[], int key) {

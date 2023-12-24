@@ -9,7 +9,7 @@ menu_actions  = {}
 
 # Main menu
 def main_menu():
-    os.system('clear')
+    os.system('cls')
     
     print("Welcome,\n")
     print("Please choose the menu you want to start:")
